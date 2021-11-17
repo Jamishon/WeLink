@@ -1,0 +1,14 @@
+
+#
+/.vscode
+
+
+# Server
+/Server/logs
+/Server/CMakeFiles
+/Server/.vs
+/Server/CMakeCache.txt
+/Server/cmake_install.cmake
+/Server/out
+
+
