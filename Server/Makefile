@@ -123,86 +123,86 @@ server/fast:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/build
 .PHONY : server/fast
 
-ConfigFile.o: ConfigFile.cc.o
+src/ConfigFile.o: src/ConfigFile.cc.o
 
-.PHONY : ConfigFile.o
-
-# target to build an object file
-ConfigFile.cc.o:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/ConfigFile.cc.o
-.PHONY : ConfigFile.cc.o
-
-ConfigFile.i: ConfigFile.cc.i
-
-.PHONY : ConfigFile.i
-
-# target to preprocess a source file
-ConfigFile.cc.i:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/ConfigFile.cc.i
-.PHONY : ConfigFile.cc.i
-
-ConfigFile.s: ConfigFile.cc.s
-
-.PHONY : ConfigFile.s
-
-# target to generate assembly for a file
-ConfigFile.cc.s:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/ConfigFile.cc.s
-.PHONY : ConfigFile.cc.s
-
-Log.o: Log.cc.o
-
-.PHONY : Log.o
+.PHONY : src/ConfigFile.o
 
 # target to build an object file
-Log.cc.o:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Log.cc.o
-.PHONY : Log.cc.o
+src/ConfigFile.cc.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ConfigFile.cc.o
+.PHONY : src/ConfigFile.cc.o
 
-Log.i: Log.cc.i
+src/ConfigFile.i: src/ConfigFile.cc.i
 
-.PHONY : Log.i
+.PHONY : src/ConfigFile.i
 
 # target to preprocess a source file
-Log.cc.i:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Log.cc.i
-.PHONY : Log.cc.i
+src/ConfigFile.cc.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ConfigFile.cc.i
+.PHONY : src/ConfigFile.cc.i
 
-Log.s: Log.cc.s
+src/ConfigFile.s: src/ConfigFile.cc.s
 
-.PHONY : Log.s
+.PHONY : src/ConfigFile.s
 
 # target to generate assembly for a file
-Log.cc.s:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Log.cc.s
-.PHONY : Log.cc.s
+src/ConfigFile.cc.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ConfigFile.cc.s
+.PHONY : src/ConfigFile.cc.s
 
-main.o: main.cc.o
+src/log/LogWrapper.o: src/log/LogWrapper.cc.o
 
-.PHONY : main.o
+.PHONY : src/log/LogWrapper.o
 
 # target to build an object file
-main.cc.o:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/main.cc.o
-.PHONY : main.cc.o
+src/log/LogWrapper.cc.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/log/LogWrapper.cc.o
+.PHONY : src/log/LogWrapper.cc.o
 
-main.i: main.cc.i
+src/log/LogWrapper.i: src/log/LogWrapper.cc.i
 
-.PHONY : main.i
+.PHONY : src/log/LogWrapper.i
 
 # target to preprocess a source file
-main.cc.i:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/main.cc.i
-.PHONY : main.cc.i
+src/log/LogWrapper.cc.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/log/LogWrapper.cc.i
+.PHONY : src/log/LogWrapper.cc.i
 
-main.s: main.cc.s
+src/log/LogWrapper.s: src/log/LogWrapper.cc.s
 
-.PHONY : main.s
+.PHONY : src/log/LogWrapper.s
 
 # target to generate assembly for a file
-main.cc.s:
-	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/main.cc.s
-.PHONY : main.cc.s
+src/log/LogWrapper.cc.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/log/LogWrapper.cc.s
+.PHONY : src/log/LogWrapper.cc.s
+
+src/main.o: src/main.cc.o
+
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cc.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/main.cc.o
+.PHONY : src/main.cc.o
+
+src/main.i: src/main.cc.i
+
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cc.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/main.cc.i
+.PHONY : src/main.cc.i
+
+src/main.s: src/main.cc.s
+
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cc.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/main.cc.s
+.PHONY : src/main.cc.s
 
 # Help Target
 help:
@@ -213,15 +213,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... server"
-	@echo "... ConfigFile.o"
-	@echo "... ConfigFile.i"
-	@echo "... ConfigFile.s"
-	@echo "... Log.o"
-	@echo "... Log.i"
-	@echo "... Log.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/ConfigFile.o"
+	@echo "... src/ConfigFile.i"
+	@echo "... src/ConfigFile.s"
+	@echo "... src/log/LogWrapper.o"
+	@echo "... src/log/LogWrapper.i"
+	@echo "... src/log/LogWrapper.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 
