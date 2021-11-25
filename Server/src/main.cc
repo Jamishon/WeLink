@@ -149,10 +149,38 @@ int main(int argc, char *argv[]) {
             //         if (buf[i] == '\0') break;
             //         vc_sendbuf.push_back(buf[i]);
             //       }
-            //       epoll_event temp;
-            //       temp.data.fd = ev.data.fd;
-            //       temp.events = EPOLLIN | EPOLLOUT;
-            //       ::epoll_ctl(epfd, EPOLL_CTL_MOD, ev.data.fd, &temp);
+    
+
+            //       int writeable = true;
+            //       while (writeable) {
+            //         char sendbuf[32] = {0};
+            //         int len = 0;
+            //         for (unsigned int i = 0; i < vc_sendbuf.size() && i < 32; i++) {
+            //           sendbuf[i] = vc_sendbuf[i];
+            //           len++;
+            //         }
+            //         if( vc_sendbuf.size() <= 0) break;
+
+            //         int write_ret = ::write(ev.data.fd, sendbuf, len);
+            //         if (write_ret > 0) {
+            //           LOG_INFO("write ret:" << write_ret
+            //                                 << " writecontent:" << sendbuf);
+            //           vc_sendbuf.erase(vc_sendbuf.begin(), vc_sendbuf.begin() + write_ret);                      
+            //         } else if (write_ret == 0) {
+            //           writeable = false;
+            //         } else {
+            //           int err_no = errno;
+            //           if (err_no == EWOULDBLOCK) {
+            //             epoll_event temp;
+            //             temp.data.fd = ev.data.fd;
+            //             temp.events = EPOLLIN | EPOLLOUT;
+            //             ::epoll_ctl(epfd, EPOLL_CTL_MOD, ev.data.fd, &temp);
+            //           }
+                      
+            //           writeable = false;
+            //           LOG_INFO("write ret:" << write_ret << " errno:" << err_no);
+            //         }
+            //       }
             //     }
 
             //   } else if (ret == 0) {
@@ -187,10 +215,43 @@ int main(int argc, char *argv[]) {
                       if (buf[i] == '\0') break;
                       vc_sendbuf.push_back(buf[i]);
                     }
-                    epoll_event temp;
-                    temp.data.fd = ev.data.fd;
-                    temp.events = EPOLLIN | EPOLLOUT | EPOLLET;
-                    ::epoll_ctl(epfd, EPOLL_CTL_MOD, ev.data.fd, &temp);
+                    // epoll_event temp;
+                    // temp.data.fd = ev.data.fd;
+                    // temp.events = EPOLLIN | EPOLLOUT | EPOLLET;
+                    // ::epoll_ctl(epfd, EPOLL_CTL_MOD, ev.data.fd, &temp);
+                    int writeable = true;
+                    while (writeable) {
+                      char sendbuf[32] = {0};
+                      int len = 0;
+                      for (unsigned int i = 0; i < vc_sendbuf.size() && i < 32;
+                           i++) {
+                        sendbuf[i] = vc_sendbuf[i];
+                        len++;
+                      }
+                      if (vc_sendbuf.size() <= 0) break;
+
+                      int write_ret = ::write(ev.data.fd, sendbuf, len);
+                      if (write_ret > 0) {
+                        LOG_INFO("write ret:" << write_ret
+                                              << " writecontent:" << sendbuf);
+                        vc_sendbuf.erase(vc_sendbuf.begin(),
+                                         vc_sendbuf.begin() + write_ret);
+                      } else if (write_ret == 0) {
+                        writeable = false;
+                      } else {
+                        int err_no = errno;
+                        if (err_no == EWOULDBLOCK) {
+                          epoll_event temp;
+                          temp.data.fd = ev.data.fd;
+                          temp.events = EPOLLIN | EPOLLOUT | EPOLLET;
+                          ::epoll_ctl(epfd, EPOLL_CTL_MOD, ev.data.fd, &temp);
+                        }
+
+                        writeable = false;
+                        LOG_INFO("write ret:" << write_ret
+                                              << " errno:" << err_no);
+                      }
+                    }
                   }
 
                 } else if (ret == 0) {
@@ -200,8 +261,8 @@ int main(int argc, char *argv[]) {
                   ::close(ev.data.fd);
                   read_end = true;
                 } else {
-                  // read error, notice the way to store errno, errno will 
-                  // be set to zero 
+                  // read error, notice the way to store errno, errno will
+                  // be set to zero
                   int err_no = errno;
                   LOG_ERROR("read error client fd: " << ev.data.fd
                                   << " errno:" << err_no);
@@ -241,23 +302,21 @@ int main(int argc, char *argv[]) {
 
             //   char buf[32] = {0};
             //   int len = 0;
-            //   for (unsigned int i = 0; i < vc_sendbuf.size() && i < 32; i++)
-            //   {
+            //   for (unsigned int i = 0; i < vc_sendbuf.size() && i < 32; i++) {
             //     buf[i] = vc_sendbuf[i];
             //     len++;
             //   }
             //   int ret = ::write(ev.data.fd, buf, len);
 
             //   if (ret > 0 && ret <= len) {
-            //     vc_sendbuf.erase(vc_sendbuf.begin(), vc_sendbuf.begin() +
-            //     ret);
+            //     vc_sendbuf.erase(vc_sendbuf.begin(), vc_sendbuf.begin() + ret);
 
             //   } else if (ret == 0) {
             //   } else {
             //   }
 
-            //    LOG_INFO("write() ret:" << ret << " sendbuf len:" <<
-            //    vc_sendbuf.size());
+            //   LOG_INFO("write() ret:" << ret
+            //                           << " sendbuf len:" << vc_sendbuf.size());
             // }
 
             {  // ET send
@@ -272,21 +331,24 @@ int main(int argc, char *argv[]) {
 
               char buf[32] = {0};
               int len = 0;
-              for (unsigned int i = 0; i < vc_sendbuf.size() && i < 32; i++) {
+              for (unsigned int i = 0; i < vc_sendbuf.size() && i < 32; i++)
+              {
                 buf[i] = vc_sendbuf[i];
                 len++;
               }
               int ret = ::write(ev.data.fd, buf, len);
 
               if (ret > 0 && ret <= len) {
-                vc_sendbuf.erase(vc_sendbuf.begin(), vc_sendbuf.begin() + ret);
+                vc_sendbuf.erase(vc_sendbuf.begin(), vc_sendbuf.begin() +
+                ret);
 
               } else if (ret == 0) {
               } else {
               }
 
               LOG_INFO("write() ret:" << ret
-                                      << " sendbuf len:" << vc_sendbuf.size());
+                                      << " sendbuf len:" <<
+                                      vc_sendbuf.size());
             }
 
             // static int mark = 0;
