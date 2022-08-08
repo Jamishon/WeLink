@@ -12,6 +12,7 @@
 #include "ConfigFile.h"
 #include "Singleton.h"
 #include "log/LogWrapper.h"
+#include "tcpserver.h"
 
 #define SERVER_NAME "welink"
 #define EPOLL_MAX_EVENTS 1024
@@ -25,6 +26,12 @@ int main(int argc, char *argv[]) {
       Singleton<LogWrapper>::Instance().Init("../etc/log.conf", SERVER_NAME);
   LOG_INFO("WeLink log function loaded");
 
+  TcpServer tcp_server(file.GetConfig("listenip"), std::stoi(file.GetConfig("listenport")));
+  tcp_server.Start();
+
+}
+
+/*
   {
     // socket fd create
     int fd = socket(AF_INET, SOCK_STREAM, 0);
@@ -94,7 +101,7 @@ int main(int argc, char *argv[]) {
       if (num == 0) {
         continue;
       } else if (num < 0) {
-        if (errno == EINTR || errno == EAGAIN)
+        if (errno == EINTR)
           continue;
         else
           break;
@@ -121,7 +128,7 @@ int main(int argc, char *argv[]) {
             epoll_event client_event;
             client_event.data.fd = client_fd;
             client_event.events = EPOLLIN;  // | EPOLLOUT;
-            // client_event.events |= EPOLLET;
+            client_event.events |= EPOLLET;
 
             if (epoll_ctl(epfd, EPOLL_CTL_ADD, client_fd, &client_event) ==
                 -1) {
@@ -130,7 +137,8 @@ int main(int argc, char *argv[]) {
                                                       << " client_fd:" << fd);
               continue;
             }
-            std::cout << "accept fd:" << client_fd << std::endl;
+            std::cout << "accept fd:" << client_fd << " ip:" << inet_ntoa(client_addr.sin_addr) 
+                      <<" port:" << ntohs(client_addr.sin_port)  <<std::endl;
           } else {
             char buf[5];
 
@@ -372,4 +380,6 @@ int main(int argc, char *argv[]) {
 
     close(fd);
   }
+  
 }
+*/

@@ -150,6 +150,141 @@ src/ConfigFile.cc.s:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/ConfigFile.cc.s
 .PHONY : src/ConfigFile.cc.s
 
+src/channel.o: src/channel.cc.o
+
+.PHONY : src/channel.o
+
+# target to build an object file
+src/channel.cc.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/channel.cc.o
+.PHONY : src/channel.cc.o
+
+src/channel.i: src/channel.cc.i
+
+.PHONY : src/channel.i
+
+# target to preprocess a source file
+src/channel.cc.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/channel.cc.i
+.PHONY : src/channel.cc.i
+
+src/channel.s: src/channel.cc.s
+
+.PHONY : src/channel.s
+
+# target to generate assembly for a file
+src/channel.cc.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/channel.cc.s
+.PHONY : src/channel.cc.s
+
+src/channel_connect.o: src/channel_connect.cc.o
+
+.PHONY : src/channel_connect.o
+
+# target to build an object file
+src/channel_connect.cc.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/channel_connect.cc.o
+.PHONY : src/channel_connect.cc.o
+
+src/channel_connect.i: src/channel_connect.cc.i
+
+.PHONY : src/channel_connect.i
+
+# target to preprocess a source file
+src/channel_connect.cc.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/channel_connect.cc.i
+.PHONY : src/channel_connect.cc.i
+
+src/channel_connect.s: src/channel_connect.cc.s
+
+.PHONY : src/channel_connect.s
+
+# target to generate assembly for a file
+src/channel_connect.cc.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/channel_connect.cc.s
+.PHONY : src/channel_connect.cc.s
+
+src/channel_listen.o: src/channel_listen.cc.o
+
+.PHONY : src/channel_listen.o
+
+# target to build an object file
+src/channel_listen.cc.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/channel_listen.cc.o
+.PHONY : src/channel_listen.cc.o
+
+src/channel_listen.i: src/channel_listen.cc.i
+
+.PHONY : src/channel_listen.i
+
+# target to preprocess a source file
+src/channel_listen.cc.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/channel_listen.cc.i
+.PHONY : src/channel_listen.cc.i
+
+src/channel_listen.s: src/channel_listen.cc.s
+
+.PHONY : src/channel_listen.s
+
+# target to generate assembly for a file
+src/channel_listen.cc.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/channel_listen.cc.s
+.PHONY : src/channel_listen.cc.s
+
+src/connection.o: src/connection.cc.o
+
+.PHONY : src/connection.o
+
+# target to build an object file
+src/connection.cc.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/connection.cc.o
+.PHONY : src/connection.cc.o
+
+src/connection.i: src/connection.cc.i
+
+.PHONY : src/connection.i
+
+# target to preprocess a source file
+src/connection.cc.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/connection.cc.i
+.PHONY : src/connection.cc.i
+
+src/connection.s: src/connection.cc.s
+
+.PHONY : src/connection.s
+
+# target to generate assembly for a file
+src/connection.cc.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/connection.cc.s
+.PHONY : src/connection.cc.s
+
+src/epoller.o: src/epoller.cc.o
+
+.PHONY : src/epoller.o
+
+# target to build an object file
+src/epoller.cc.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/epoller.cc.o
+.PHONY : src/epoller.cc.o
+
+src/epoller.i: src/epoller.cc.i
+
+.PHONY : src/epoller.i
+
+# target to preprocess a source file
+src/epoller.cc.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/epoller.cc.i
+.PHONY : src/epoller.cc.i
+
+src/epoller.s: src/epoller.cc.s
+
+.PHONY : src/epoller.s
+
+# target to generate assembly for a file
+src/epoller.cc.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/epoller.cc.s
+.PHONY : src/epoller.cc.s
+
 src/log/LogWrapper.o: src/log/LogWrapper.cc.o
 
 .PHONY : src/log/LogWrapper.o
@@ -204,6 +339,60 @@ src/main.cc.s:
 	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/main.cc.s
 .PHONY : src/main.cc.s
 
+src/socket.o: src/socket.cc.o
+
+.PHONY : src/socket.o
+
+# target to build an object file
+src/socket.cc.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/socket.cc.o
+.PHONY : src/socket.cc.o
+
+src/socket.i: src/socket.cc.i
+
+.PHONY : src/socket.i
+
+# target to preprocess a source file
+src/socket.cc.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/socket.cc.i
+.PHONY : src/socket.cc.i
+
+src/socket.s: src/socket.cc.s
+
+.PHONY : src/socket.s
+
+# target to generate assembly for a file
+src/socket.cc.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/socket.cc.s
+.PHONY : src/socket.cc.s
+
+src/tcpserver.o: src/tcpserver.cc.o
+
+.PHONY : src/tcpserver.o
+
+# target to build an object file
+src/tcpserver.cc.o:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/tcpserver.cc.o
+.PHONY : src/tcpserver.cc.o
+
+src/tcpserver.i: src/tcpserver.cc.i
+
+.PHONY : src/tcpserver.i
+
+# target to preprocess a source file
+src/tcpserver.cc.i:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/tcpserver.cc.i
+.PHONY : src/tcpserver.cc.i
+
+src/tcpserver.s: src/tcpserver.cc.s
+
+.PHONY : src/tcpserver.s
+
+# target to generate assembly for a file
+src/tcpserver.cc.s:
+	$(MAKE) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/src/tcpserver.cc.s
+.PHONY : src/tcpserver.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -216,12 +405,33 @@ help:
 	@echo "... src/ConfigFile.o"
 	@echo "... src/ConfigFile.i"
 	@echo "... src/ConfigFile.s"
+	@echo "... src/channel.o"
+	@echo "... src/channel.i"
+	@echo "... src/channel.s"
+	@echo "... src/channel_connect.o"
+	@echo "... src/channel_connect.i"
+	@echo "... src/channel_connect.s"
+	@echo "... src/channel_listen.o"
+	@echo "... src/channel_listen.i"
+	@echo "... src/channel_listen.s"
+	@echo "... src/connection.o"
+	@echo "... src/connection.i"
+	@echo "... src/connection.s"
+	@echo "... src/epoller.o"
+	@echo "... src/epoller.i"
+	@echo "... src/epoller.s"
 	@echo "... src/log/LogWrapper.o"
 	@echo "... src/log/LogWrapper.i"
 	@echo "... src/log/LogWrapper.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/socket.o"
+	@echo "... src/socket.i"
+	@echo "... src/socket.s"
+	@echo "... src/tcpserver.o"
+	@echo "... src/tcpserver.i"
+	@echo "... src/tcpserver.s"
 .PHONY : help
 
 
